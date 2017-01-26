@@ -1,6 +1,6 @@
-# gardengnome - GNOME process memory cleartext password disclosure
+# gardengnome
 
-IMPORTANT: README.md is not complete. More information coming soon.
+GNOME process memory cleartext password disclosure
 
 ## about
   * gardengnome.py must be ran as root from the working directory of the script.
@@ -22,3 +22,5 @@ IMPORTANT: README.md is not complete. More information coming soon.
     for locked user accounts.
 
   * Implement native / integrated kill chain.
+
+!! IMPORTANT: README.md is not complete. More information coming soon.
