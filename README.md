@@ -1,9 +1,16 @@
-# gardengnome
+# GardenGnome
 
 GNOME process memory cleartext password disclosure
 
 ## about
-  * gardengnome.py must be ran as root from the working directory of the script.
+  * GardenGnome is a Python2 script used to dump cleartext passwords from GNOME Display Manager process memory.
+    When a user is logged in to their desktop using GNOME Display Manager, the cleartext string value of the user's
+    password can be found within the memory space of 3 different GNOME-related processes. In order to dump the root
+    user's password, the script must be ran as root or a normal user who has or can manage to gain the privileges to run Python2 as a root user.
+
+  * Additionally, any users who lock the screen of their desktop have cached their password in the affected regions of memory. Therefore,
+    if a user has the privileges to dump process memory for these other "locked-screen" users, the passwords for these users can be
+    disclosed as well.
 
 ## usage
   * python2 gardengnome.py --attack
