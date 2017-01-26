@@ -1,4 +1,4 @@
-# gardengnome
+# gardengnome - GNOME process memory cleartext password disclosure
 
 IMPORTANT: README.md is not complete. More information coming soon.
 
