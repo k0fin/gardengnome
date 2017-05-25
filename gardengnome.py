@@ -182,12 +182,12 @@ def attack_user_account(u_acct,corestrings,pname,dmpid):
 
 def proc_menu(pk):
     '''Prints out a formatted box with the vulnerable proc names'''
-    print '{0:60}'.format('=' * 62)
-    print '|{0:60}|'.format('Target Processes')
-    print '{0:60}'.format('=' * 62)
+    print '{0:60}'.format('=' * 63)
+    print '| {0:60}|'.format('Target Processes')
+    print '{0:60}'.format('=' * 63)
     for k in pk:
-        print '|{0:60}|'.format(k)
-    print '{0:60}'.format('=' * 62)
+        print '| {0:60}|'.format(k)
+    print '{0:60}'.format('=' * 63)
 
 def build_pidlist():
     '''Builds a list of PIDs based on whether or not they are
@@ -206,6 +206,7 @@ def build_pidlist():
 
     proc_menu(pidkeys)
     gardengnome_header()
+
     for dmpid in pidlist:
         procuser = psutil.Process(pid=int(dmpid)).username()
         procname = get_procname(dmpid, pidkeys)
@@ -217,6 +218,7 @@ def build_pidlist():
             bruteforcer = attack_user_account(account,corestrings,procname,dmpid)
             if bruteforcer != None:
                 print bruteforcer
+
             else:
                 pass
 
@@ -248,8 +250,13 @@ def main():
     if attack:
         if not quiet:
             gardengnome_banner()
-            print '[<>] Starting GardenGnome...\n'
-            build_pidlist()
+
+        else:
+            os.system('clear')
+
+        print '[<>] Starting GardenGnome...\n'
+        build_pidlist()
+
     clean_garden()
 
 if __name__ == '__main__':
