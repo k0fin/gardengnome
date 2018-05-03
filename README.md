@@ -11,6 +11,8 @@ GNOME process memory cleartext password disclosure
   * Additionally, any users who lock the screen of their desktop have cached their password in the affected regions of memory. Therefore,
     if a user has the privileges to dump process memory for these other "locked-screen" users, the passwords for these users can be
     disclosed as well.
+## install
+  * pip install -r requirements.txt
 
 ## usage
   * python2 gardengnome.py --attack
